@@ -1,9 +1,10 @@
 import { Sequelize } from "sequelize";
-
-const sequelize = new Sequelize("db_food", "root", "1234", {
-  host: "localhost",
-  port: "3306",
-  dialect: "mysql",
+import config from "../config/config.js";
+const { database, user, port, dialect, password, host } = config;
+const sequelize = new Sequelize(database, user, password, {
+  host: host,
+  port: port,
+  dialect: dialect,
 });
 
 export default sequelize;
